@@ -1,13 +1,13 @@
 
 public abstract class RiskyAttraction extends Attraction {
 	int limit;
-	boolean Examinateride(int time){
+	boolean Examinateride(int time) throws Exception{
 	
 			if((time>=limit)) {
 				if((time /limit)==(int)(time /limit)) {
-					return true;
+					throw new Exception("This attraction is undergoing maintinance, please come back later");
 				} else if ((time % limit)==0) {
-					return true;
+					throw new Exception("This attraction is undergoing maintinance, please come back later");
 				} else {
 					return false;
 				}
@@ -24,5 +24,6 @@ public abstract class RiskyAttraction extends Attraction {
 		super(price);
 		// TODO Auto-generated constructor stub
 	}
+	
 
 }

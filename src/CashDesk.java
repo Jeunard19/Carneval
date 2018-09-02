@@ -9,8 +9,8 @@ public class CashDesk {
 		 totalrevenue+=revenue;
 	 }
 
-	 void storetax(double revenue) {
-		 taxtopay+=revenue*0.30;
+	 void storetax(double tax) {
+		 taxtopay+=(tax);
 	 }
 	 double gettotalrevenue() {
 		 return totalrevenue;

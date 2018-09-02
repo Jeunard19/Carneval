@@ -84,35 +84,44 @@ class Carnevalrunner{
 	Attraction runthisattraction(Attraction attraction) {
 		attraction.runAttraction();
 		attraction.setRevenue();
-		
 		attraction.setTickets();
 		cashDesk.buildrevenue(attraction.getRevenue());
-		cashDesk.storetax(attraction.getRevenue());
+		if (attraction instanceof Gamble) {
+			cashDesk.storetax(((Gamble) attraction).getTax());
+		}
 		cashDesk=taxman.Collecttax(cashDesk,attraction);
-		System.out.println(attraction.getRevenue());
+		//System.out.println(attraction.getRevenue());
 		return attraction;
 	
 	}
 	
 	Attraction runthisattraction(Attraction attraction1,int time) {
 		RiskyAttraction attraction =  (RiskyAttraction) attraction1;
-		System.out.println(time);
-		System.out.println(attraction.Examinateride(time));
-		if(attraction.Examinateride(time)) {
-			System.out.println("This attraction is undergoing maintinance, please come back later");
-			return attraction;
-		} else {
+		//System.out.println(time);
+		try{
 			
+				System.out.println(attraction.Examinateride(time));
+				attraction.runAttraction();
+				attraction.setRevenue();
+				attraction.setTickets();
+				cashDesk.buildrevenue(attraction.getRevenue());
+				if (attraction instanceof Gamble) {
+					cashDesk.storetax(((Gamble) attraction).getTax());
+				}
+				cashDesk=taxman.Collecttax(cashDesk,attraction);
+				//System.out.println(attraction.getRevenue());
+			return  attraction;
+		}  catch(Exception e){
+			
+			System.out.println(e);
 		
-		attraction.runAttraction();
-		attraction.setRevenue();
-		attraction.setTickets();
-		cashDesk.buildrevenue(attraction.getRevenue());
-		cashDesk.storetax(attraction.getRevenue());
-		cashDesk=taxman.Collecttax(cashDesk,attraction);
-		System.out.println(attraction.getRevenue());
-		return attraction;
+			return attraction;
+
+			
+			
+			
 		}
+	
 	}
 	}
 

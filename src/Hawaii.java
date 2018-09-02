@@ -5,11 +5,13 @@ public class Hawaii extends RiskyAttraction {
 		super(price);
 		// TODO Auto-generated constructor stub
 	}
-	boolean Examinateride(int time){
+	boolean Examinateride(int time) throws Exception{
 		
 		if((time>=limit)) {
-			if((time %limit)==0) {
-				return true;
+			if((time /limit)==(int)(time /limit)) {
+				throw new Exception("This attraction is undergoing maintinance, please come back later");
+			} else if ((time % limit)==0) {
+				throw new Exception("This attraction is undergoing maintinance, please come back later");
 			} else {
 				return false;
 			}
@@ -17,6 +19,7 @@ public class Hawaii extends RiskyAttraction {
 		} else {
 			return false;
 		}
+		
 	}
 	String name = "Hawaii";
 	double price = 2.50;

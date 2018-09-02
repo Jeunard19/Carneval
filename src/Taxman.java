@@ -9,8 +9,9 @@ public class Taxman {
 			if(rand.nextInt(14)==10) {
 				double tax = cashdesk.taxtopay;
 				cashdesk.buildrevenue(cashdesk.gettotalrevenue()-tax);
-				System.out.println("Tax man has collected "+tax);
+				System.out.println("The taxman has collected "+tax);
 				cashdesk.taxmanvisit=true;
+				cashdesk.taxtopay=0;
 				return cashdesk;
 				
 			} else {

@@ -17,7 +17,7 @@ public class Ladderclimbing extends Attraction implements Gamble{
 	public void setTax() {
 		// TODO Auto-generated method stub
 		
-		 tax+=(revenue*0.30);
+		 tax=(price *0.30);
 	}
 	@Override
 	public double getTax() {
